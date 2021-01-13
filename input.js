@@ -4,6 +4,8 @@
  */
 
 //Stores the active TCP connection object.
+const {MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, HELLO_KEY, HOW_ARE_YOU_KEY, I_WILL_WIN_KEY, EXIT_KEY} = require('./constants');
+
 let connection;
 
 const setupInput = function(conn) {
@@ -20,32 +22,30 @@ const setupInput = function(conn) {
 
 // will check for Ctrl + c and exit game and handle w,a,s,d keys
 const handleUserInput = function(input) {
-  if (input === '\u0003') {
+  if (input === EXIT_KEY) {
     process.exit();
   }
-  if (input === '\u0077') {
+  if (input === MOVE_UP_KEY) {
     connection.write("Move: up");
   }
-  if (input === '\u0061') {
+  if (input === MOVE_LEFT_KEY) {
     connection.write("Move: left");
   }
-  if (input === '\u0073') {
+  if (input === MOVE_DOWN_KEY) {
     connection.write("Move: down");
   }
-  if (input === '\u0064') {
+  if (input === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
   }
-  if (input === '\u006B') {
+  if (input === HELLO_KEY) {
     connection.write("Say: hello ☺️");
   }
-  if (input === '\u006A') {
+  if (input === HOW_ARE_YOU_KEY) {
     connection.write("Say: how are you");
   }
-  if (input === '\u006C') {
+  if (input === I_WILL_WIN_KEY) {
     connection.write("Say: I will win!!!");
   }
 }
-
-
 
 module.exports = {setupInput};
