@@ -16,6 +16,10 @@ const connect = function() {
   conn.on('connect', () => {
     console.log("Successfully connected to game server");
     conn.write("Name: ST");
+    // conn.write("Move: up");
+    // setInterval(()=> {
+    //   conn.write("Move: up");
+    // }, 50 )
   })
   // on receiving data from server, it will print it to our terminal
   // server will send message when it kicks us out for idling
