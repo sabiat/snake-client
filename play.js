@@ -11,7 +11,7 @@ const connect = function() {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
-  
+  // on receiving data from server, it will print it to our terminal
   conn.on('data', (data) => {
     console.log(data);
   })
