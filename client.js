@@ -12,7 +12,13 @@ const connect = function() {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
+  // on connection to server, will print message to us and we will send message to server which shows initials on screen
+  conn.on('connect', () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: ST");
+  })
   // on receiving data from server, it will print it to our terminal
+  // server will send message when it kicks us out for idling
   conn.on('data', (data) => {
     console.log(data);
   })
